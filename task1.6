@@ -1,0 +1,34 @@
+using System;
+
+class CreditCalculator
+{
+    static void Main()
+    {
+        // Исходные данные
+        decimal sumOfLoan = 800000;     // Сумма займа
+        double interestRate = 12;        // Годовая процентная ставка
+        int termInYears = 3;             // Срок займа в годах
+
+        // Перевод срока займа в месяцы
+        int termInMonths = termInYears * 12;
+
+        // Расчет ежемесячной процентной ставки
+        double monthlyInterestRate = interestRate / 1200;
+
+        // Формула аннуитета для расчета ежемесячного платежа
+        decimal monthlyPayment = sumOfLoan *
+            (decimal)(monthlyInterestRate /
+                (1 - Math.Pow((1 + monthlyInterestRate), -termInMonths)));
+
+        // Общая сумма всех платежей
+        decimal totalPayments = monthlyPayment * termInMonths;
+        
+        // Переплата за кредит
+        decimal overPayments = totalPayments - sumOfLoan;
+
+        // Вывод результатов
+        Console.WriteLine($"Ежемесячный платеж: {monthlyPayment:N2}р.");
+        Console.WriteLine($"Общая сумма выплат по кредиту: {totalPayments:N2}р.");
+        Console.WriteLine($"Переплата по кредиту: {overPayments:N2}р.");
+    }
+}
