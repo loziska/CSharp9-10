@@ -1,0 +1,29 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Ввод границ отрезка
+        Console.Write("Введите значение a: ");
+        double a = Convert.ToDouble(Console.ReadLine());
+
+        Console.Write("Введите значение b: ");
+        double b = Convert.ToDouble(Console.ReadLine());
+
+        if (a >= b)
+        {
+            Console.WriteLine("Ошибка: a должно быть меньше b.");
+            return;
+        }
+
+        // Генерация случайного числа r ∈ [0; 1]
+        Random random = new Random();
+        double r = random.Next(0,100) * 0.01; // Возвращает случайное число в диапазоне [0, 1]. Вообще хотел NextDouble, но оно не включает 1, если верить интернетам.
+
+        // Вычисление случайного x из отрезка [a; b]
+        double x = (b - a) * r + a;
+
+        // Вывод результата
+        Console.WriteLine($"Случайное число x из отрезка [{a}; {b}] = {x}");
+    }
