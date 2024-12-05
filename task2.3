@@ -1,0 +1,28 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Ввод координат точки
+        Console.Write("Введите координату x: ");
+        double x = Convert.ToDouble(Console.ReadLine());
+
+        Console.Write("Введите координату y: ");
+        double y = Convert.ToDouble(Console.ReadLine());
+
+        // Проверка принадлежности точке области
+        bool isInsideUnitCircle = (x * x + y * y < 1);
+        bool isAboveTheLine = (y > 1 - x);
+
+        // Вывод результата
+        if (isInsideUnitCircle && isAboveTheLine)
+        {
+            Console.WriteLine($"Точка ({x}, {y}) принадлежит замкнутой области.");
+        }
+        else
+        {
+            Console.WriteLine($"Точка ({x}, {y}) не принадлежит замкнутой области.");
+        }
+    }
+}
