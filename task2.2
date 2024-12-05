@@ -1,0 +1,52 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Ввод данных о студенте
+        Console.Write("Введите возраст студента: ");
+        int age = Convert.ToInt32(Console.ReadLine());
+
+        Console.Write("Введите количество ВАК статей: ");
+        int vakArticlesCount = Convert.ToInt32(Console.ReadLine());
+
+        Console.Write("Является ли студент участником другого гранта? (Да/Нет): ");
+        string grantParticipation = Console.ReadLine().ToLower();
+
+        // Проверяем возможность участия в конкурсе
+        bool canParticipate = IsEligible(age, vakArticlesCount, grantParticipation);
+
+        // Определяем право на дополнительную надбавку
+        bool hasBonus = HasBonus(age, vakArticlesCount, grantParticipation);
+
+        // Выводим результаты
+        Console.WriteLine("Может ли студент участвовать в конкурсе: " + canParticipate);
+        Console.WriteLine("Имеется ли право на дополнительную надбавку: " + hasBonus);
+    }
+
+    private static bool IsEligible(int age, int vakArticlesCount, string grantParticipation)
+    {
+        if (age < 18 || age > 25)
+        {
+            return false;
+        }
+
+        if (vakArticlesCount < 2)
+        {
+            return false;
+        }
+
+        if (grantParticipation == "да")
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    private static bool HasBonus(int vakArticlesCount, int age, string grantParticipation)
+    {
+        return vakArticlesCount >= 3 && IsEligible(age, vakArticlesCount, grantParticipation);
+    }
+}
