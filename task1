@@ -1,0 +1,32 @@
+using System;
+class Program
+{
+    static void Main()
+    {
+        // Целочисленная переменная counter со значением 10
+        int counter = 10;
+        
+        // Вещественная переменная coordX со значением -4.5
+        double coordX = -4.5;
+        
+        // Вещественная переменная coordY со значением 5.7
+        double coordY = 5.7;
+        
+        // Строковая переменная user со значением вашего ФИО
+        string user = "Ваше ФИО";
+        
+        // Логическая переменная fileIsOpen со значением true
+        bool fileIsOpen = true;
+        
+        // Постоянная Планка PLANK, используя экспоненциальную запись числа
+        const double PLANK = 6.62607015e-34;
+        
+        // Вывод значений переменных в консоль с комментариями
+        Console.WriteLine($"Целочисленная переменная counter: {counter}");
+        Console.WriteLine($"Вещественная переменная coordX: {coordX}");
+        Console.WriteLine($"Вещественная переменная coordY: {coordY}");
+        Console.WriteLine($"Строковая переменная user: {user}");
+        Console.WriteLine($"Логическая переменная fileIsOpen: {fileIsOpen}");
+        Console.WriteLine($"Постоянная Планка PLANK: {PLANK}");
+    }
+}
