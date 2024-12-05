@@ -13,7 +13,7 @@ class Program
         double coordY = 5.7;
         
         // Строковая переменная user со значением вашего ФИО
-        string user = "Ваше ФИО";
+        string user = "Багров Данил Игоревич";
         
         // Логическая переменная fileIsOpen со значением true
         bool fileIsOpen = true;
