@@ -1,0 +1,28 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Радиус окружности
+        double R = 10.3;
+
+        // Длина окружности L = 2πR
+        double L = 2 * Math.PI * R;
+
+        // Площадь круга S = πR²
+        double S = Math.PI * Math.Pow(R, 2);
+
+        // Площадь поверхности сферы Γ = 4πR²
+        double Gamma = 4 * Math.PI * Math.Pow(R, 2);
+
+        // Объем шара V = 4/3πR³
+        double V = 4 / 3.0 * Math.PI * Math.Pow(R, 3);
+
+        // Вывод результатов
+        Console.WriteLine($"Длина окружности: {L} ед^2");
+        Console.WriteLine($"Площадь круга: {S} ед^2");
+        Console.WriteLine($"Площадь сферы: {Gamma} ед^2");
+        Console.WriteLine($"Объем шара: {V} ед^2");
+    }
+}
