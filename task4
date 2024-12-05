@@ -1,0 +1,25 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Внешний радиус
+        double externalRadius = 10;
+        
+        // Внутренний радиус
+        double internalRadius = 5.6;
+        
+        // Площадь внешнего круга
+        double externalCircleArea = Math.PI * Math.Pow(externalRadius, 2);
+        
+        // Площадь внутреннего круга
+        double internalCircleArea = Math.PI * Math.Pow(internalRadius, 2);
+        
+        // Площадь кольца
+        double ringArea = externalCircleArea - internalCircleArea;
+        
+        // Вывод результата
+        Console.WriteLine($"Площадь кольца: {ringArea:N2}");
+    }
+}
