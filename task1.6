@@ -1,0 +1,23 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Запрашиваем у пользователя ввод значений a и b
+        Console.Write("Введите значение a: ");
+        double a = Convert.ToDouble(Console.ReadLine());
+
+        Console.Write("Введите значение b: ");
+        double b = Convert.ToDouble(Console.ReadLine());
+        
+        Console.WriteLine($"a = {a}");
+        Console.WriteLine($"b = {b}");
+
+        // Вычисляем значение H
+        double H = Math.Max(a, b) * ((Math.Log(1 + a * a) + Math.Sin(2 * Math.Cos(b))) / (Math.Sqrt(a * a + b * b) + 1));
+
+        // Выводим результат
+        Console.WriteLine($"H({a};{b}) = {H:N7} (с точностью до 7 знаков)");
+    }
+}
