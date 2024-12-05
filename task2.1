@@ -1,0 +1,32 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Ввод первого числа
+        Console.Write("Введите первое число: ");
+        double firstNumber = Convert.ToDouble(Console.ReadLine());
+
+        // Ввод второго числа
+        Console.Write("Введите второе число: ");
+        double secondNumber = Convert.ToDouble(Console.ReadLine());
+
+        // Определение наибольшего числа
+        double largestNumber = Math.Max(firstNumber, secondNumber);
+
+        // Вывод результата
+        if (firstNumber == secondNumber)
+        {
+            Console.WriteLine($"Первое больше. Оно равно {largestNumber}.");
+        }
+        else if (firstNumber > secondNumber)
+        {
+            Console.WriteLine($"Первое больше. Оно равно {largestNumber}.");
+        }
+        else
+        {
+            Console.WriteLine($"второе больше. Оно равно {largestNumber}.");
+        }
+    }
+}
