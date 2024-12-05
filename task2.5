@@ -1,0 +1,37 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Ввод балльного рейтинга
+        Console.Write("Введите итоговый рейтинговый балл: ");
+        int rating = Convert.ToInt32(Console.ReadLine());
+
+        // Определение оценки
+        string grade;
+        if (rating >= 0 && rating <= 60)
+        {
+            grade = "неудовлетворительно";
+        }
+        else if (rating >= 61 && rating <= 75)
+        {
+            grade = "удовлетворительно";
+        }
+        else if (rating >= 76 && rating <= 89)
+        {
+            grade = "хорошо";
+        }
+        else if (rating >= 90 && rating <= 100)
+        {
+            grade = "отлично";
+        }
+        else
+        {
+            grade = "Недопустимый балл.";
+        }
+
+        // Вывод результата
+        Console.WriteLine($"Оценка: {grade}");
+    }
+}
