@@ -1,0 +1,25 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Задание значений a и b
+        int a = 4;
+        int b = 2;
+
+        // Вычисляем x
+        int x = (a + 1) * (a + 1); // Или Math.Pow(a + 1, 2)
+
+        // Вычисляем y
+        int y = 3 * a * (b - 2);
+
+        // Вычисляем z
+        int z = 5 * x * x + 4 * y * y;
+
+        // Выводим результат
+        Console.WriteLine($"x = {x}");
+        Console.WriteLine($"y = {y}");
+        Console.WriteLine($"z = {z}");
+    }
+}
