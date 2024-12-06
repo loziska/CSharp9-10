@@ -1,0 +1,52 @@
+using System;
+
+class Program
+{
+    // Перечисление для направлений движения робота
+    enum Direction
+    {
+        North = 1,      // Север
+        East = 2,       // Восток
+        South = 3,      // Юг
+        West = 4,       // Запад
+        Error = 0       // Поломка робота
+    }
+
+    static void Main()
+    {
+        // Считываем код направления движения робота
+        Console.Write("Введите код направления движения робота (1-4): ");
+        int directionCode = int.Parse(Console.ReadLine());
+
+        // Преобразуем числовой код в элемент перечисления
+        Direction direction;
+        try
+        {
+            direction = (Direction)directionCode;
+        }
+        catch (Exception)
+        {
+            direction = Direction.Error;
+        }
+
+        // Выводим направление движения робота
+        switch (direction)
+        {
+            case Direction.North:
+                Console.WriteLine("Север");
+                break;
+            case Direction.East:
+                Console.WriteLine("Восток");
+                break;
+            case Direction.South:
+                Console.WriteLine("Юг");
+                break;
+            case Direction.West:
+                Console.WriteLine("Запад");
+                break;
+            case Direction.Error:
+                Console.WriteLine("Поломка робота");
+                break;
+        }
+    }
+}
