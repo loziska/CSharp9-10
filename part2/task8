@@ -1,0 +1,38 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Считываем код направления движения робота
+        Console.Write("Введите код направления движения робота (0-4): ");
+        int directionCode = int.Parse(Console.ReadLine());
+
+        // Определяем направление движения с помощью оператора switch
+        string direction = "";
+        switch (directionCode)
+        {
+            case 1:
+                direction = "Север";
+                break;
+            case 2:
+                direction = "Восток";
+                break;
+            case 3:
+                direction = "Юг";
+                break;
+            case 4:
+                direction = "Запад";
+                break;
+            case 0:
+                direction = "Поломка робота";
+                break;
+            default:
+                direction = "Неизвестное направление";
+                break;
+        }
+
+        // Выводим направление движения робота
+        Console.WriteLine($"{direction}.");
+    }
+}
