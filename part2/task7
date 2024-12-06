@@ -1,0 +1,31 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Считываем значения a и b
+        Console.Write("Введите число a: ");
+        int a = int.Parse(Console.ReadLine());
+        Console.Write("Введите число b: ");
+        int b = int.Parse(Console.ReadLine());
+
+        // Находим минимальное значение между a и b
+        int min = a < b ? a : b;
+
+        // Проверяем, является ли min четным положительным числом
+        bool isEvenPositive = min % 2 == 0 && min > 0;
+
+        // Считываем значение n
+        Console.Write("Введите число n: ");
+        int n = int.Parse(Console.ReadLine());
+
+        // Вычисляем результат в зависимости от четности n.
+        int result = n % 2 == 0 && n > 0 ? (int)(2 * n) : -(int)(2 * n);
+
+        // Выводим результаты
+        Console.WriteLine($"min: {min}");
+        Console.WriteLine($"isEvenPositive: {isEvenPositive}");
+        Console.WriteLine($"result: {result}");
+    }
+}
