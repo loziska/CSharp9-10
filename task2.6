@@ -1,0 +1,33 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Запрашиваем ввод значения x
+        Console.Write("x = ");
+        double x = Convert.ToDouble(Console.ReadLine());
+
+        // Вычисляем значение функции f(x)
+        double result;
+        if (x < -2)
+        {
+            result = Math.Abs(x) * Math.Sin(x);
+        }
+        else if (-2 <= x && x < 0)
+        {
+            result = Math.Exp(2 * x);
+        }
+        else if (x == 0)
+        {
+            result = 1;
+        }
+        else // x > 0
+        {
+            result = Math.Log(x * x + 1);
+        }
+
+        // Выводим результат
+        Console.WriteLine($"f({x}) = {result:N7}");
+    }
+}
