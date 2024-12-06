@@ -1,0 +1,82 @@
+using System;
+
+class InequalitySolver
+{
+    static void Main()
+    {
+        // Ввод коэффициентов
+        Console.Write("Введите коэффициент a: ");
+        double a = Double.Parse(Console.ReadLine());
+        Console.Write("Введите коэффициент b: ");
+        double b = Double.Parse(Console.ReadLine());
+
+        // Ввод знака неравенства
+        Console.Write("Введите знак неравенства (≥, =, ≤): ");
+        string sign = Console.ReadLine();
+
+        // Решение неравенства или уравнения
+        SolveInequalityOrEquation(a, b, sign);
+    }
+
+    static void SolveInequalityOrEquation(double a, double b, string sign)
+    {
+        if (sign == "=")
+        {
+            // Решить уравнение ax + b = 0
+            if (a != 0)
+            {
+                double solution = -b / a;
+                Console.WriteLine($"Решение уравнения: x = {solution}");
+            }
+            else
+            {
+                if (b == 0)
+                {
+                    Console.WriteLine("Уравнение имеет бесконечное количество решений.");
+                }
+                else
+                {
+                    Console.WriteLine("Уравнение не имеет решений.");
+                }
+            }
+        }
+        else if (sign == "≥" || sign == "<=" || sign == ">=" || sign == "<=")
+        {
+            // Решение неравенства
+            if (a == 0)
+            {
+                if ((sign == ">" || sign == "<") && b == 0)
+                {
+                    Console.WriteLine("Неопределенность.");
+                }
+                else if (b >= 0 && (sign == "≥" || sign == ">"))
+                {
+                    Console.WriteLine("Неравенство выполняется для любого x.");
+                }
+                else if (b <= 0 && (sign == "<=" || sign == "<"))
+                {
+                    Console.WriteLine("Неравенство выполняется для любого x.");
+                }
+                else
+                {
+                    Console.WriteLine("Неравенство не выполняется ни для какого x.");
+                }
+            }
+            else
+            {
+                double boundary = -b / a;
+                if (sign == "≥" || sign == ">")
+                {
+                    Console.WriteLine($"x ∈ [{boundary}; +∞)");
+                }
+                else if (sign == "<=" || sign == "<")
+                {
+                    Console.WriteLine($"x ∈ (-∞; {boundary}]");
+                }
+            }
+        }
+        else
+        {
+            Console.WriteLine("Неправильный знак неравенства.");
+        }
+    }
