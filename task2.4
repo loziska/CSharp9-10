@@ -1,0 +1,37 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Оно двигается? (ДА/НЕТ)");
+        string answer1 = Console.ReadLine().ToUpper();
+        
+        if (answer1 == "ДА")
+        {
+            Console.WriteLine("А должно? (ДА/НЕТ)");
+            string answer2 = Console.ReadLine().ToUpper();
+            
+            if (answer2 == "ДА")
+                Console.WriteLine("Нет проблем!");
+            else if (answer2 == "НЕТ")
+                Console.WriteLine("Воспользуйтесь изолентой!");
+            else
+                Console.WriteLine("Да. Или. Нет. Так в услвоие написано! Без импровизаций пожалуйста!");
+        }
+        else if (answer1 == "НЕТ")
+        {
+            Console.WriteLine("А должно? (ДА/НЕТ)");
+            string answer2 = Console.ReadLine().ToUpper();
+            
+            if (answer2 == "ДА")
+                Console.WriteLine("Воспользуйтесь смазкой!");
+            else if (answer2 == "НЕТ")
+                Console.WriteLine("Нет проблем!");
+            else
+                Console.WriteLine("Да. Или. Нет. Так в услвоие написано! Без импровизаций пожалуйста!");
+        }
+        else
+                Console.WriteLine("Да. Или. Нет. Так в услвоие написано! Без импровизаций пожалуйста!");
+    }
+}
