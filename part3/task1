@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+
+class PrimeFactorizationLong
+{
+    static void Main()
+    {
+        Console.Write("Введите натуральное число n (>= 2): ");
+        long n = long.Parse(Console.ReadLine());
+
+        Dictionary<long, int> factors = Factorize(n);
+
+        Console.WriteLine($"Каноническое разложение числа {n}:");
+        foreach (var factor in factors)
+        {
+            Console.WriteLine($"{factor.Key}^{factor.Value}");
+        }
+    }
+
+    static Dictionary<long, int> Factorize(long n)
+    {
+        Dictionary<long, int> factors = new Dictionary<long, int>();
+        long divisor = 2;
+
+        while (n > 1)
+        {
+            while (n % divisor == 0)
+            {
+                if (!factors.ContainsKey(divisor))
+                {
+                    factors.Add(divisor, 0);
+                }
+                factors[divisor]++;
+                n /= divisor;
+            }
+            divisor++;
+        }
+
+        return factors;
+    }
+}
