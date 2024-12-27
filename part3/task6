@@ -1,0 +1,58 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Запрашиваем натуральное число n >= 10
+        Console.Write("Введите натуральное число n (>= 10): ");
+        int n = int.Parse(Console.ReadLine());
+
+        // Проверяем, что n >= 10
+        if (n < 10)
+        {
+            Console.WriteLine("Ошибка: введено число меньше 10.");
+            return;
+        }
+
+        // Вычисляем частичную сумму ряда S(n)
+        double partialSum = 0;
+        for (int k = 1; k <= n; k++)
+        {
+            partialSum += 1.0 / (k * k);
+        }
+
+        // Предел суммы ряда
+        double limit = Math.PI * Math.PI / 6;
+
+        // Относительная погрешность
+        double relativeError = Math.Abs(partialSum - limit) / limit * 100;
+
+        // Вывод результатов
+        Console.WriteLine($"Частичная сумма S({n}) = {partialSum:F15}");
+        Console.WriteLine($"Предел суммы ряда = {limit:F15}");
+        Console.WriteLine($"Относительная погрешность = {relativeError:F8}%");
+
+        // Экспериментальная часть: подбор n, при котором погрешность < 1%
+        double tolerance = 0.0001;
+        int targetN = FindTargetN(limit, tolerance);
+        Console.WriteLine($"При n = {targetN} относительная погрешность составляет менее {tolerance*100}%.");
+    }
+
+    // Метод для нахождения подходящего n
+    static int FindTargetN(double limit, double tolerance)
+    {
+        int n = 1;
+        double currentSum = 0;
+        double error;
+
+        do
+        {
+            currentSum += 1.0 / (n * n);
+            error = Math.Abs(currentSum - limit) / limit;
+            n++;
+        } while (error > tolerance);
+
+        return n - 1;
+    }
+}
