@@ -1,0 +1,30 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string password = "L3310OIl1980QTО";  // Пароль-константа
+
+        string input;
+        bool isCorrect = false;
+
+        do
+        {
+            Console.Write("Введите пароль: ");
+            input = Console.ReadLine();
+
+            if (input == password)
+            {
+                isCorrect = true;
+                Console.WriteLine("finally...");
+            }
+            else
+            {
+                Console.WriteLine("Неверный пароль. Попробуйте еще раз. У вас обязательно получится...)");
+            }
+        } while (!isCorrect);  // Цикл продолжается до правильного ввода пароля
+
+        Console.WriteLine("Вы просто скопировали константу?.");
+    }
+}
