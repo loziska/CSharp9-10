@@ -18,7 +18,7 @@ class Program
         for (double x = a; x <= b; x += h)
         {
             double fx = F(x);
-            Console.WriteLine($"f({x}) = {fx:N2}");
+            Console.WriteLine($"f({x:N3}) = {fx:N5}");
         }
     }
 
