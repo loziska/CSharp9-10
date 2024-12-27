@@ -34,7 +34,7 @@ class Program
         Console.WriteLine($"Относительная погрешность = {relativeError:F8}%");
 
         // Экспериментальная часть: подбор n, при котором погрешность < 1%
-        double tolerance = 0.0001;
+        double tolerance = 0.01;
         int targetN = FindTargetN(limit, tolerance);
         Console.WriteLine($"При n = {targetN} относительная погрешность составляет менее {tolerance*100}%.");
     }
