@@ -1,0 +1,46 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Запрашиваем натуральные числа n >= 10 и вещественное x
+        Console.Write("Введите натуральное число n (>= 10): ");
+        int n = int.Parse(Console.ReadLine());
+
+        Console.Write("Введите вещественное число x: ");
+        double x = double.Parse(Console.ReadLine());
+
+        // Проверяем, что n >= 10
+        if (n < 10)
+        {
+            Console.WriteLine("Ошибка: введено число меньше 10.");
+            return;
+        }
+
+        // Вычисляем приближённое значение e^x по ряду Тейлора
+        double taylorExp = TaylorSeriesExp(x, n);
+
+        // Вычисляем точное значение e^x с использованием встроенной функции Math.Exp
+        double exactExp = Math.Exp(x);
+
+        // Выводим результаты
+        Console.WriteLine($"Приближённое значение e^{x} по ряду Тейлора: {taylorExp}");
+        Console.WriteLine($"Точное значение e^{x}: {exactExp}");
+    }
+
+    // Функция для вычисления приближённого значения e^x по ряду Тейлора
+    static double TaylorSeriesExp(double x, int n)
+    {
+        double result = 1.0; // Начальный член ряда: 1
+        double term = 1.0;   // Текущий член ряда
+
+        for (int i = 1; i <= n; i++)
+        {
+            term *= x / i;     // Обновляем текущий член ряда
+            result += term;    // Добавляем текущий член к результату
+        }
+
+        return result;
+    }
+}
