@@ -1,0 +1,21 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.Write("Введите значение n: ");
+        double n = Convert.ToDouble(Console.ReadLine());
+        double sum = 0;
+
+        for (int i = 0; i <= n; i++)
+        {
+            if (i % 30 == 0) // Число должно делиться на 2, 3 и 5 одновременно, что эквивалентно делимости на 30
+            {
+                sum += Math.Sqrt(i);
+            }
+        }
+
+        Console.WriteLine($"sum = {sum:N5}");
+    }
+}
