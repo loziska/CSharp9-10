@@ -1,0 +1,61 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Ввод размера массива
+        Console.Write("Введите размер массива: ");
+        int size = int.Parse(Console.ReadLine());
+
+        // Создание массива
+        double[] array = new double[size];
+
+        // Ввод элементов массива
+        Console.WriteLine("Введите элементы массива:");
+        for (int i = 0; i < size; i++)
+        {
+            Console.Write($"Элемент {i}: ");
+            array[i] = double.Parse(Console.ReadLine());
+        }
+
+        // Подсчёт количества чётных положительных и нечётных отрицательных элементов
+        int evenPositiveCount = 0;
+        int oddNegativeCount = 0;
+
+        foreach (var item in array)
+        {
+            if (item > 0 && Math.Abs(item) % 2 == 0)
+            {
+                evenPositiveCount++;
+            }
+            if (item < 0 && Math.Abs(item) % 2 != 0)
+            {
+                oddNegativeCount++;
+            }
+        }
+
+        // Поиск индекса первого нуля
+        int firstZeroIndex = -1;
+        for (int i = 0; i < size; i++)
+        {
+            if (array[i] == 0)
+            {
+                firstZeroIndex = i;
+                break;
+            }
+        }
+
+        // Печать исходного массива
+        Console.WriteLine("\nИсходный массив:");
+        foreach (var item in array)
+        {
+            Console.WriteLine(item);
+        }
+
+        // Вывод результатов
+        Console.WriteLine($"\nКоличество чётных положительных элементов: {evenPositiveCount}");
+        Console.WriteLine($"Количество нечётных отрицательных элементов: {oddNegativeCount}");
+        Console.WriteLine($"Индекс первого нулевого элемента: {firstZeroIndex}");
+    }
+}
