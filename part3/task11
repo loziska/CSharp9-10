@@ -1,0 +1,24 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Ввод массива вещественных чисел
+        Console.Write("Введите массив вещественных чисел через пробел: ");
+        string input = Console.ReadLine();
+        string[] parts = input.Split(' ');
+        double[] numbers = Array.ConvertAll(parts, double.Parse);
+
+        // Поиск чисел, удовлетворяющих условию |x - [x]| < 0.5
+        Console.WriteLine("Числа, дробная часть которых меньше 0.5:");
+       foreach (double num in numbers)
+        {
+            double fractionalPart = Math.Abs(num - Math.Floor(num));
+            if (fractionalPart < 0.5)
+            {
+                Console.WriteLine($"{num} (дробная часть: {fractionalPart})");
+            }
+        }
+    }
+}
