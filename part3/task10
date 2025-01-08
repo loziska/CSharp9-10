@@ -1,0 +1,45 @@
+using System;
+
+class PrimeNumberChecker
+{
+    static void Main()
+    {
+        // Запрашиваем число n
+        Console.Write("Введите число n (n >= 2): ");
+        int n = int.Parse(Console.ReadLine());
+
+        // Проверяем, является ли число простым
+        bool isPrime = IsPrime(n);
+
+        // Выводим результат
+        if (isPrime)
+        {
+            Console.WriteLine($"{n} - простое число");
+        }
+        else
+        {
+            Console.WriteLine($"{n} - составное число");
+        }
+    }
+
+    // Метод для проверки, является ли число простым
+    static bool IsPrime(int number)
+    {
+        // Условие для чисел меньше 2
+        if (number < 2)
+        {
+            return false;
+        }
+
+        // Проверяем делимость числа на все числа от 2 до sqrt(number)
+        for (int i = 2; i * i <= number; i++)
+        {
+            if (number % i == 0)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
