@@ -50,8 +50,10 @@ class Program
         Console.WriteLine("\nИсходный массив:");
         foreach (var item in array)
         {
-            Console.WriteLine(item);
+            Console.Write(item);
+            Console.Write(' ');
         }
+        Console.WriteLine();
 
         // Вывод результатов
         Console.WriteLine($"\nКоличество чётных положительных элементов: {evenPositiveCount}");
