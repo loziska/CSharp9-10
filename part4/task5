@@ -1,0 +1,67 @@
+using System;
+
+class MatrixOperations
+{
+    static void Main()
+    {
+        // Размеры матрицы
+        const int rows = 5;
+        const int cols = 5;
+
+        // Генерация случайных чисел
+        Random random = new Random();
+
+        // Создание матрицы
+        int[,] matrix = new int[rows, cols];
+
+        // Заполнение матрицы случайными числами
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < cols; j++)
+            {
+                matrix[i, j] = random.Next(-1000, 1001); // Диапазон от -1000 до 1000
+            }
+        }
+
+        // Вывод матрицы на экран
+        Console.WriteLine("Матрица:");
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < cols; j++)
+            {
+                Console.Write(matrix[i, j].ToString().PadLeft(5) + " "); // Отступ для выравнивания
+            }
+            Console.WriteLine(); // Переход на новую строку
+        }
+
+        // Инициализация переменных для поиска максимума, минимума и суммы положительных элементов
+        int maxValue = Int32.MinValue;
+        int minValue = Int32.MaxValue;
+        int positiveSum = 0;
+
+        // Поиск максимального, минимального значения и суммы положительных элементов
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < cols; j++)
+            {
+                if (matrix[i, j] > maxValue)
+                {
+                    maxValue = matrix[i, j]; // Обновление максимального значения
+                }
+                if (matrix[i, j] < minValue)
+                {
+                    minValue = matrix[i, j]; // Обновление минимального значения
+                }
+                if (matrix[i, j] > 0)
+                {
+                    positiveSum += matrix[i, j]; // Добавление положительного элемента к сумме
+                }
+            }
+        }
+
+        // Вывод результатов
+        Console.WriteLine("\nМаксимальное значение: " + maxValue);
+        Console.WriteLine("Минимальное значение: " + minValue);
+        Console.WriteLine("Сумма положительных элементов: " + positiveSum);
+    }
+}
