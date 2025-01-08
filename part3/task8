@@ -1,0 +1,46 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Запрашиваем натуральные числа n >= 10
+        Console.Write("Введите натуральное число n (>= 10): ");
+        int n = int.Parse(Console.ReadLine());
+        
+        if (n < 10)
+        {
+            Console.WriteLine("Число должно быть больше или равно 10.");
+            return;
+        }
+
+        // Запрашиваем вещественное число x
+        Console.Write("Введите вещественное число x: ");
+        double x = double.Parse(Console.ReadLine());
+
+        // Вычисляем приближение косинуса через ряд Тейлора
+        double taylorCosX = TaylorCos(x, n);
+
+        // Вычисляем точное значение косинуса с помощью встроенной функции
+        double mathCosX = Math.Cos(x);
+
+        // Выводим результаты
+        Console.WriteLine($"Приближенное значение cos({x}) по ряду Тейлора: {taylorCosX}");
+        Console.WriteLine($"Точное значение cos({x}) с помощью Math.Cos: {mathCosX}");
+    }
+
+    // Функция для вычисления косинуса через ряд Тейлора
+    static double TaylorCos(double x, int n)
+    {
+        double result = 0.0;
+        double term = 1.0; // Начальный член ряда
+
+        for (int i = 0; i <= n; ++i)
+        {
+            result += term;
+            term *= -1 * x * x / ((2 * i + 2) * (2 * i + 1)); // Следующий член ряда
+        }
+
+        return result;
+    }
+}
