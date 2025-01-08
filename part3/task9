@@ -1,0 +1,45 @@
+using System;
+
+class PerfectNumbersFinder
+{
+    static void Main(string[] args)
+    {
+        // Считываем входное значение n
+        Console.Write("Введите число n: ");
+        int n = int.Parse(Console.ReadLine());
+
+        // Перебираем все числа от 1 до n
+        for (int number = 1; number <= n; number++)
+        {
+            // Находим сумму всех делителей числа number
+            int sumOfDivisors = SumOfProperDivisors(number);
+
+            // Проверяем, является ли число совершенным
+            if (number == sumOfDivisors)
+            {
+                Console.WriteLine($"{number} - совершенное число");
+            }
+        }
+    }
+
+    // Метод для нахождения суммы всех собственных делителей числа
+    static int SumOfProperDivisors(int number)
+    {
+        int sum = 1; 
+
+        // Перебираем возможные делители от 2 до sqrt(number)
+        for (int divisor = 2; divisor * divisor <= number; divisor++)
+        {
+            if (number % divisor == 0)
+            {
+                sum += divisor;
+                if (divisor != number / divisor)
+                {
+                    sum += number / divisor;
+                }
+            }
+        }
+
+        return sum;
+    }
+}
