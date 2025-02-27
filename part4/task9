@@ -1,0 +1,56 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Запрашиваем количество дней наблюдений
+        Console.Write("Введите количество дней наблюдений: ");
+        int days = int.Parse(Console.ReadLine());
+
+        // Создаем ступенчатый массив для хранения температур
+        double[][] temperatures = new double[days][];
+
+        // Заполняем массив температурами
+        for (int i = 0; i < days; i++)
+        {
+            Console.Write($"Введите количество измерений температуры за день {i + 1}: ");
+            int measurements = int.Parse(Console.ReadLine());
+
+            temperatures[i] = new double[measurements];
+
+            for (int j = 0; j < measurements; j++)
+            {
+                Console.Write($"Введите температуру {j + 1} за день {i + 1}: ");
+                temperatures[i][j] = double.Parse(Console.ReadLine());
+            }
+        }
+
+        // Выводим таблицу температур
+        Console.WriteLine("\nТаблица температур:");
+        Console.WriteLine("День\tТемпературы\t\tСреднее значение");
+
+        for (int i = 0; i < temperatures.Length; i++)
+        {
+            // Выводим номер дня
+            Console.Write($"{i + 1}\t");
+
+            // Выводим температуры для текущего дня
+            for (int j = 0; j < temperatures[i].Length; j++)
+            {
+                Console.Write($"{temperatures[i][j]:F1}\t"); // Форматируем вывод до десятых
+            }
+
+            // Вычисляем среднее значение температуры за день
+            double sum = 0;
+            for (int j = 0; j < temperatures[i].Length; j++)
+            {
+                sum += temperatures[i][j];
+            }
+            double average = sum / temperatures[i].Length;
+
+            // Выводим среднее значение
+            Console.WriteLine($"\t\t{average:F1}"); // Форматируем вывод до десятых
+        }
+    }
+}
