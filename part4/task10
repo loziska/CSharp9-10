@@ -1,0 +1,50 @@
+using System;
+using System.Linq;
+
+class Program
+{
+    static void Main()
+    {
+        // Исходный массив
+        int[] test = { 5, -3, 0, 12, 8, -7, 15, 4 };
+
+        // Создаем копию массива
+        int[] copy = new int[test.Length];
+        Array.Copy(test, copy, test.Length);
+
+        // Сортируем копию по возрастанию
+        Array.Sort(copy);
+
+        // Выводим оба массива
+        Console.WriteLine("Исходный массив (test):");
+        PrintArray(test);
+
+        Console.WriteLine("\nОтсортированный массив (copy):");
+        PrintArray(copy);
+
+        // Проверяем, есть ли в массиве хотя бы один нуль
+        bool hasZero = Array.Exists(copy, element => element == 0);
+        Console.WriteLine($"\nВ массиве есть хотя бы один нуль: {hasZero}");
+
+        // Проверяем, есть ли в массиве хотя бы одно число из интервала [0, 15]
+        bool hasNumberInRange = Array.Exists(copy, element => element >= 0 && element <= 15);
+        Console.WriteLine($"В массиве есть хотя бы одно число из интервала [0, 15]: {hasNumberInRange}");
+
+        // Создаем новый массив из положительных элементов copy
+        int[] positiveNumbers = Array.FindAll(copy, element => element > 0);
+
+        // Выводим массив положительных элементов
+        Console.WriteLine("\nМассив положительных элементов (positiveNumbers):");
+        PrintArray(positiveNumbers);
+    }
+
+    // Метод для вывода массива
+    static void PrintArray(int[] array)
+    {
+        foreach (var element in array)
+        {
+            Console.Write(element + " ");
+        }
+        Console.WriteLine();
+    }
+}
