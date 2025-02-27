@@ -1,0 +1,62 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Запрашиваем у пользователя размеры матрицы
+        Console.Write("Введите количество строк: ");
+        int rows = int.Parse(Console.ReadLine());
+
+        Console.Write("Введите количество столбцов: ");
+        int cols = int.Parse(Console.ReadLine());
+
+        // Создаем матрицу
+        int[,] matrix = new int[rows, cols];
+
+        // Заполняем матрицу значениями с клавиатуры
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < cols; j++)
+            {
+                Console.Write($"Введите элемент [{i},{j}]: ");
+                matrix[i, j] = int.Parse(Console.ReadLine());
+            }
+        }
+
+        // Выводим матрицу
+        Console.WriteLine("\nВведенная матрица:");
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < cols; j++)
+            {
+                Console.Write(matrix[i, j] + "\t"); // Выводим элементы строки через табуляцию
+            }
+            Console.WriteLine(); // Переход на новую строку после вывода строки матрицы
+        }
+
+        // Создаем массив для хранения наибольших значений в каждой строке
+        int[] maxValues = new int[rows];
+
+        // Находим наибольшие значения в каждой строке
+        for (int i = 0; i < rows; i++)
+        {
+            int max = matrix[i, 0]; // Предполагаем, что первый элемент строки — наибольший
+            for (int j = 1; j < cols; j++)
+            {
+                if (matrix[i, j] > max)
+                {
+                    max = matrix[i, j];
+                }
+            }
+            maxValues[i] = max; // Сохраняем наибольшее значение
+        }
+
+        // Выводим результат
+        Console.WriteLine("\nНаибольшие значения в каждой строке:");
+        for (int i = 0; i < rows; i++)
+        {
+            Console.WriteLine($"Строка {i}. Максимум равен {maxValues[i]}");
+        }
+    }
+}
