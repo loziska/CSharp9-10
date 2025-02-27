@@ -17,21 +17,29 @@ class Program
 
     // Метод для проверки числа на простоту
     static bool IsPrime(int n)
+{
+    if (n < 2)
     {
-        if (n < 2)
+        return false;
+    }
+    if (n == 2)
+    {
+        return true;
+    }
+    if (n % 2 == 0)
+    {
+        return false; // Все остальные четные числа не являются простыми
+    }
+
+    // Проверяем только нечетные делители
+    for (int i = 3; i * i <= n; i += 2)
+    {
+        if (n % i == 0)
         {
             return false;
         }
-
-        // Проверяем делители от 2 до квадратного корня из n
-        for (int i = 2; i * i <= n; i++)
-        {
-            if (n % i == 0)
-            {
-                return false;
-            }
-        }
-
-        return true;
     }
+
+    return true;
+}
 }
