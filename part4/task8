@@ -1,0 +1,43 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Запрашиваем у пользователя количество строк в ступенчатом массиве
+        Console.Write("Введите количество строк в ступенчатом массиве: ");
+        int rows = int.Parse(Console.ReadLine());
+
+        // Создаем ступенчатый массив
+        int[][] jaggedArray = new int[rows][];
+
+        // Заполняем массив
+        for (int i = 0; i < rows; i++)
+        {
+            // Запрашиваем количество элементов в текущей строке
+            Console.Write($"Введите количество элементов в строке {i}: ");
+            int cols = int.Parse(Console.ReadLine());
+
+            // Создаем массив для текущей строки
+            jaggedArray[i] = new int[cols];
+
+            // Заполняем текущую строку значениями
+            for (int j = 0; j < cols; j++)
+            {
+                Console.Write($"Введите элемент [{i},{j}]: ");
+                jaggedArray[i][j] = int.Parse(Console.ReadLine());
+            }
+        }
+
+        // Выводим ступенчатый массив
+        Console.WriteLine("\nВведенный ступенчатый массив:");
+        for (int i = 0; i < jaggedArray.Length; i++)
+        {
+            for (int j = 0; j < jaggedArray[i].Length; j++)
+            {
+                Console.Write(jaggedArray[i][j] + "\t"); // Выводим элементы через табуляцию
+            }
+            Console.WriteLine(); // Переход на новую строку
+        }
+    }
+}
